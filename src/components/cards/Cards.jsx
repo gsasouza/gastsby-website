@@ -2,12 +2,11 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 import SideMenu from '../sideMenu/SideMenu'
+import { Section, SectionLink } from "react-scroll-section"
 
-const bgImage = require('../../images/secao-seguro-bg.jpg')
 
 const Wrapper = styled.section`
-  background-image: url(${bgImage});
-  background-size: cover;
+  background-color: #000;
   min-height: ${props => props.show ? 'calc(100vh - 80px)': '0'};
   ${props => !props.show && css`height: 0;`};
   overflow: hidden;
@@ -24,15 +23,39 @@ const Text = styled.div`
   font-style: italic;
 `;
 
+const SectionPlaceholder = styled.div`
+  height: 80px;
+  margin-top: -80px;
+  visibility: hidden;
+  background-color: transparent;
+`;
+
+const Cards = [
+  {
+
+  }
+]
+
 const Welcome = ({ show, hideCards }) => {
   return (
-    <Wrapper id="cards" show={show}>
-      <Text>
-        Um cartão que está sempre com você em qualquer lugar do mundo
-      </Text>
-      <span onClick={hideCards}>Voltar</span>
-      <SideMenu/>
-    </Wrapper>
+    <>
+      <Section id={'cards2'}>
+        <SectionPlaceholder/>
+      </Section>
+      <Wrapper show={show}>
+        <Text>
+          Um cartão que está sempre com você em qualquer lugar do mundo
+        </Text>
+        <SectionLink section={'cards'}>
+          {link => <span onClick={() => {
+            hideCards();
+            link.onClick();
+          }}>Voltar</span> }
+        </SectionLink>
+
+        <SideMenu/>
+      </Wrapper>
+    </>
   )
 }
 

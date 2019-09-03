@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import SideMenu from '../sideMenu/SideMenu'
+import { Section } from "react-scroll-section"
 
 const bgImage = require('../../images/secao-seguro-bg.jpg')
 
@@ -21,14 +22,27 @@ const Text = styled.div`
   font-style: italic;
 `;
 
+const SectionPlaceholder = styled.div`
+  height: 80px;
+  margin-top: -80px;
+  visibility: hidden;
+  background-color: transparent;
+`;
+
 const Welcome = () => {
   return (
-    <Wrapper id="insurance">
-      <Text>
-        Um cartão que está sempre com você em qualquer lugar do mundo
-      </Text>
-      <SideMenu/>
-    </Wrapper>
+    <>
+      <Section id={'insurance'}>
+        <SectionPlaceholder/>
+      </Section>
+      <Wrapper>
+        <Text>
+          Um cartão que está sempre com você em qualquer lugar do mundo
+        </Text>
+        <SideMenu/>
+      </Wrapper>
+    </>
+
   )
 }
 

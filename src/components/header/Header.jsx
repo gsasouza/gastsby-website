@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { Section } from 'react-scroll-section';
 
 import HeaderButton from './HeaderButton';
 
@@ -52,19 +53,19 @@ const Logo = styled.img`
 const items = [
   {
     label: 'Nossos Cartões',
-    to: '/#cards'
+    section: 'cards'
   },
   {
     label: 'App e Portal',
-    to: '/#portal'
+    section: 'portal'
   },
   {
     label: 'Seguro Premiável',
-    to: '/#insurance'
+    section: 'insurance'
   },
   {
     label: 'Cartão Virtual',
-    to: '/#virtual-card'
+    section: 'virtual-card'
   }
 ]
 
@@ -84,14 +85,16 @@ const Header = ({ children }) => {
       <StyledHeader isFixed={isOnTop}>
         <Nav>
           <UnorderedList >
-            {items.map(item => <HeaderButton to={item.to}>{item.label}</HeaderButton>)}
+            {items.map(item => <HeaderButton key={item.section} section={item.section}>{item.label}</HeaderButton>)}
           </UnorderedList>
         </Nav>
         <Logo src={baneseLogo}/>
       </StyledHeader>
-      <HeaderWrapper>
-        {children}
-      </HeaderWrapper>
+      <Section id={'header'}>
+        <HeaderWrapper>
+          {children}
+        </HeaderWrapper>
+      </Section>
     </>
   )
 }

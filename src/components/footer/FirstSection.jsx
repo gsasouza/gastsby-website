@@ -1,14 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import { SectionLink } from "react-scroll-section"
 
 const Wrapper = styled.div`
   display: flex;
 `;
 
-const Item = styled.a`
+const Item = styled.span`
   margin: 0 60px;
   color: #ffffff;
   transition: all 0.1s ease;
+  cursor: pointer;
   &:hover {
     color: #00f0b1;
   }
@@ -17,26 +19,32 @@ const Item = styled.a`
 const items = [
   {
     label: 'Nossos Cartões',
-    to: '/#cards'
+    section: 'cards'
   },
   {
     label: 'App e Portal',
-    to: '/#portal'
+    section: 'portal'
   },
   {
     label: 'Seguro Premiável',
-    to: '/#insurance'
+    section: 'insurance'
   },
   {
     label: 'Cartão Virtual',
-    to: '/#virtual-card'
+    section: 'virtual-card'
   }
 ]
 
 const FirstSection = () => {
   return (
     <Wrapper>
-      {items.map(item => <Item href={item.to}>{item.label}</Item>)}
+      {items.map(item => (
+        <SectionLink key={item.section} section={item.section}>
+          {link => (
+            <Item onClick={link.onClick} isActive={link.isSelected}>{item.label}</Item>
+          )}
+        </SectionLink>
+      ))}
     </Wrapper>
   )
 }

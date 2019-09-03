@@ -1,5 +1,6 @@
 import React from "react"
 import { createGlobalStyle } from "styled-components"
+import { ScrollingProvider } from 'react-scroll-section';
 
 import Layout from '../components/layout/Layout';
 import Welcome from '../components/welcome/Welcome';
@@ -24,15 +25,17 @@ const GlobalStyle = createGlobalStyle`
 const IndexPage = () => {
   const [showCards, setShowCards] = React.useState(false);
   return (
-    <Layout>
-      <GlobalStyle/>
-      <Welcome showCards={() => setShowCards(true)}/>
-      <Card show={showCards} hideCards={() => setShowCards(false)}/>
-      <AppPortal/>
-      <Insurance/>
-      <VirtualCard/>
-      <Footer />
-    </Layout>
+    <ScrollingProvider scrollBehavior="smooth">
+      <Layout>
+        <GlobalStyle/>
+        <Welcome showCards={() => setShowCards(true)}/>
+        <Card show={showCards} hideCards={() => setShowCards(false)}/>
+        <AppPortal/>
+        <Insurance/>
+        <VirtualCard/>
+        <Footer />
+      </Layout>
+    </ScrollingProvider>
   )
 }
 

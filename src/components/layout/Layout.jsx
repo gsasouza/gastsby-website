@@ -5,7 +5,7 @@ const Layout = ({ children }) => {
   return (
     <div >
       <Header/>
-      <div onScroll={e => console.log(e)}>
+      <div>
         {children}
       </div>
     </div>

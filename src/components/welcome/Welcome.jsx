@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaChevronDown } from 'react-icons/fa';
+import { Section, SectionLink } from "react-scroll-section"
 
 import SideMenu from '../sideMenu/SideMenu'
 
@@ -43,22 +44,39 @@ const LabelCard = styled.span`
   text-align: center;
 `;
 
+const SectionPlaceholder = styled.div`
+  height: 80px;
+  margin-top: -80px;
+  visibility: hidden;
+  background-color: transparent;
+`;
+
 const Welcome = ({ showCards }) => {
   return (
-    <Wrapper id="card">
-      <Row>
-        <Text>
-          Um cartão que está sempre com você em qualquer lugar do mundo
-        </Text>
-        <SideMenu/>
-      </Row>
-      <LabelCard> Escolha o nosso cartão que mais combina com seu estilo de vida</LabelCard>
-      <LabelCard style={{
-        marginBottom: 50,
-      }}>
-        <FaChevronDown onClick={showCards} size={'80px'}/>
-      </LabelCard>
-    </Wrapper>
+    <>
+      <Section id="cards">
+        <SectionPlaceholder />
+      </Section>
+      <Wrapper className={'section'}>
+        <Row>
+          <Text>
+            Um cartão que está sempre com você em qualquer lugar do mundo
+          </Text>
+          <SideMenu/>
+        </Row>
+        <LabelCard> Escolha o nosso cartão que mais combina com seu estilo de vida</LabelCard>
+        <LabelCard style={{
+          marginBottom: 50,
+        }}>
+          <SectionLink section={'cards2'}>
+            {link => <FaChevronDown onClick={() => {
+              showCards();
+              link.onClick();
+            }} size={'80px'}/> }
+          </SectionLink>
+        </LabelCard>
+      </Wrapper>
+    </>
   )
 }
 

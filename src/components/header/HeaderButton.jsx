@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { SectionLink } from 'react-scroll-section';
 
 const ListItem = styled.li`
   display: inline;
@@ -7,18 +8,20 @@ const ListItem = styled.li`
   color: #ffffff;
   padding-bottom: 5px;
   transition: all 0.1s ease;
+  cursor: pointer;
   ${props => props.isActive && css`border-bottom: 2px solid #00f0b19c;`}
   &:hover {
     color: #00f0b1;
   }
 `;
 
-const HeaderButton = ({ children, to }) => {
-  const [isActive, setIsActive] = React.useState(false);
+const HeaderButton = ({ children, section }) => {
   return (
-    <a href={to} getProps={({ isActive }) => setIsActive(isActive)}>
-      <ListItem isActive={isActive}>{children}</ListItem>
-    </a>
+    <SectionLink section={section} style={{ cursor: 'pointer' }}>
+      {link => (
+        <ListItem onClick={link.onClick} isActive={link.isSelected}>{children}</ListItem>
+      )}
+    </SectionLink>
   )
 }
 
