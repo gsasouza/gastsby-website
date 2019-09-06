@@ -39,7 +39,6 @@ const Welcome = () => {
         <Text>
           Um cartão que está sempre com você em qualquer lugar do mundo
         </Text>
-        <SideMenu/>
       </Wrapper>
 
     </>

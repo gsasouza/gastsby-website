@@ -24,6 +24,7 @@ const StyledHeader = styled.header`
   padding: 0 80px;
   align-items: center;
   display: flex;
+  z-index: 1;
   transition: background-color 0.3s ease;
   ${props => props.isFixed && css`background-color: #000;`}
 `;
@@ -48,6 +49,26 @@ const Logo = styled.img`
   width: 130px;
   margin-left: 15px
   ;
+`;
+
+const ButtonClient = styled.a`
+  margin-left: auto;
+  button {
+    border: 1px solid #00f0b1;
+    border-radius: 30px;    
+    text-transform: uppercase;
+    color: white;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 3px 7px;
+    &:hover {
+      color: #000;
+      background-color: #00f0b1;
+    }
+  }
+  
 `;
 
 const items = [
@@ -89,6 +110,11 @@ const Header = ({ children }) => {
           </UnorderedList>
         </Nav>
         <Logo src={baneseLogo}/>
+        <ButtonClient href={'https://www.banesecard.com.br/portalcliente'}>
+          <button>
+            Sou Cliente
+          </button>
+        </ButtonClient>
       </StyledHeader>
       <Section id={'header'}>
         <HeaderWrapper>

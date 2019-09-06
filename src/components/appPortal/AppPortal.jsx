@@ -36,12 +36,13 @@ const Welcome = () => {
       <Section id={'portal'}>
         <SectionPlaceholder/>
       </Section>
-      <Wrapper>
-        <Text>
-          Um cartão que está sempre com você em qualquer lugar do mundo
-        </Text>
-        <SideMenu/>
-      </Wrapper>
+      <Section id={'portal-content'}>
+        <Wrapper>
+          <Text>
+            Um cartão que está sempre com você em qualquer lugar do mundo
+          </Text>
+        </Wrapper>
+      </Section>
     </>
   )
 }

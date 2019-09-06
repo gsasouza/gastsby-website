@@ -62,7 +62,6 @@ const Welcome = ({ showCards }) => {
           <Text>
             Um cartão que está sempre com você em qualquer lugar do mundo
           </Text>
-          <SideMenu/>
         </Row>
         <LabelCard> Escolha o nosso cartão que mais combina com seu estilo de vida</LabelCard>
         <LabelCard style={{
@@ -71,11 +70,12 @@ const Welcome = ({ showCards }) => {
           <SectionLink section={'cards2'}>
             {link => <FaChevronDown onClick={() => {
               showCards();
-              link.onClick();
+              setTimeout(link.onClick, 100);
             }} size={'80px'}/> }
           </SectionLink>
         </LabelCard>
       </Wrapper>
+
     </>
   )
 }
