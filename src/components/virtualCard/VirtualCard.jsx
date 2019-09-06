@@ -1,13 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-
-import SideMenu from '../sideMenu/SideMenu'
 import { Section } from "react-scroll-section"
+import { graphql } from "gatsby"
+import BackgroundImage from 'gatsby-background-image'
 
-const bgImage = require('../../images/secao-cartao-virtual.jpg')
-
-const Wrapper = styled.section`
-  background-image: url(${bgImage});
+const Wrapper = styled(BackgroundImage)`
   background-size: cover;
   min-height: calc(100vh - 80px);
   display: flex;
@@ -29,20 +26,31 @@ const SectionPlaceholder = styled.div`
   background-color: transparent;
 `;
 
-const Welcome = () => {
+const Welcome = ({ virtualCardBackground }) => {
   return (
     <>
       <Section id={'virtual-card'}>
         <SectionPlaceholder/>
       </Section>
-      <Wrapper>
+      <Wrapper Tag={`section`} fluid={virtualCardBackground.childImageSharp.fluid}>
         <Text>
           Um cartão que está sempre com você em qualquer lugar do mundo
         </Text>
       </Wrapper>
-
     </>
   )
 }
+
+export const fragment = graphql`
+  fragment VirtualCard_images on Query {
+    virtualCardBackground: file(relativePath: { eq: "secao-cartao-virtual.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
 
 export default Welcome

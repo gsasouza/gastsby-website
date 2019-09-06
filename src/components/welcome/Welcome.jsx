@@ -2,13 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { FaChevronDown } from 'react-icons/fa';
 import { Section, SectionLink } from "react-scroll-section"
+import { graphql } from "gatsby"
+import BackgroundImage from 'gatsby-background-image'
 
-import SideMenu from '../sideMenu/SideMenu'
-
-const bgImage = require('../../images/welcome.jpg')
-
-const Wrapper = styled.section`
-  background-image: url(${bgImage});
+const Wrapper = styled(BackgroundImage)`
   background-size: cover;
   min-height: calc(100vh - 80px);
   display: flex;
@@ -51,13 +48,13 @@ const SectionPlaceholder = styled.div`
   background-color: transparent;
 `;
 
-const Welcome = ({ showCards }) => {
+const Welcome = ({ showCards, welcomeBackground }) => {
   return (
     <>
       <Section id="cards">
         <SectionPlaceholder />
       </Section>
-      <Wrapper className={'section'}>
+      <Wrapper Tag={`section`} fluid={welcomeBackground.childImageSharp.fluid}>
         <Row>
           <Text>
             Um cartão que está sempre com você em qualquer lugar do mundo
@@ -75,9 +72,20 @@ const Welcome = ({ showCards }) => {
           </SectionLink>
         </LabelCard>
       </Wrapper>
-
     </>
   )
 }
+
+export const fragment = graphql`
+  fragment Welcome_images on Query {
+    welcomeBackground: file(relativePath: { eq: "welcome.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
 
 export default Welcome

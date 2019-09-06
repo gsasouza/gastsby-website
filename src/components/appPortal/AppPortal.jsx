@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import { graphql } from "gatsby"
+import BackgroundImage from 'gatsby-background-image'
 
-import SideMenu from '../sideMenu/SideMenu'
 import { Section } from "react-scroll-section"
 
-const bgImage = require('../../images/secao-app-bg.jpg')
-
-const Wrapper = styled.section`
-  background-image: url(${bgImage});
+const Wrapper = styled(BackgroundImage)`
   background-size: cover;
   min-height: calc(100vh - 80px);
   display: flex;
@@ -30,14 +28,14 @@ const SectionPlaceholder = styled.div`
   background-color: transparent;
 `;
 
-const Welcome = () => {
+const Welcome = ({ appPortalBackground }) => {
   return (
     <>
       <Section id={'portal'}>
         <SectionPlaceholder/>
       </Section>
       <Section id={'portal-content'}>
-        <Wrapper>
+        <Wrapper Tag={`section`} fluid={appPortalBackground.childImageSharp.fluid}>
           <Text>
             Um cartão que está sempre com você em qualquer lugar do mundo
           </Text>
@@ -46,5 +44,17 @@ const Welcome = () => {
     </>
   )
 }
+
+export const fragment = graphql`
+  fragment AppPortal_images on Query {
+    appPortalBackground: file(relativePath: { eq: "secao-app-bg.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
 
 export default Welcome

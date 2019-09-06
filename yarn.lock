@@ -723,7 +723,7 @@
     "@babel/plugin-transform-react-jsx-self" "^7.0.0"
     "@babel/plugin-transform-react-jsx-source" "^7.0.0"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.2.0", "@babel/runtime@^7.4.2", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.5":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.4.2", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.5":
   version "7.5.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.5.5.tgz#74fba56d35efbeca444091c7850ccd494fd2f132"
   integrity sha512-28QvEGyQyNkB0/m2B4FU7IEZGK2NUrcMtT6BZEFALTguLk+AUT6ofsHtPk5QyjAdUkpMJ+/Em+quwz4HOt30AQ==
@@ -4929,15 +4929,6 @@ fsevents@^1.2.7:
     nan "^2.12.1"
     node-pre-gyp "^0.12.0"
 
-fullpage-react@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/fullpage-react/-/fullpage-react-3.1.0.tgz#1727b61ed57a3822ff41e5c5e1eb7f7b1a3e19c4"
-  integrity sha512-GG3OxtaVx1ripZPcExIrnVjhoSfU0MlI2pQTKngtV9qed+bRYQTMaQ/LIYNljNwY9JPK1o4WugXpOvzQ2Hun6g==
-  dependencies:
-    react-fns "^1.4.0"
-    scroll-swipe "0.0.17"
-    window-or-global "^1.0.1"
-
 function-bind@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
@@ -4947,6 +4938,15 @@ functional-red-black-tree@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
+
+gatsby-background-image@^0.8.9:
+  version "0.8.9"
+  resolved "https://registry.yarnpkg.com/gatsby-background-image/-/gatsby-background-image-0.8.9.tgz#2f75be50fcc89a282758adecc61fb5bdfe883f5b"
+  integrity sha512-O7XKM1WkWPQeGFWEE2147yD1F6HO9W/y0zfoKBrK06U++hulDYd5RZdPmg0wByVW4grc4jF6fm1+X7keaHZKJA==
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    global "^4.4.0"
+    prop-types "^15.7.2"
 
 gatsby-cli@^2.7.34:
   version "2.7.34"
@@ -5441,7 +5441,7 @@ global-prefix@^1.0.1:
     is-windows "^1.0.1"
     which "^1.2.14"
 
-global@^4.3.0:
+global@^4.3.0, global@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/global/-/global-4.4.0.tgz#3e7b105179006a323ed71aafca3e9c57a5cc6406"
   integrity sha512-wv/LAoHdRE3BeTGz53FAamhGlPLhlssK45usmGFThIi4XqnBmjKQ16u+RNbP7WvigRZDxUsM0J3gcQ5yicaL0w==
@@ -6832,13 +6832,6 @@ json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
   integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
-
-json2mq@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/json2mq/-/json2mq-0.2.0.tgz#b637bd3ba9eabe122c83e9720483aeb10d2c904a"
-  integrity sha1-tje9O6nqvhIsg+lyBIOusQ0skEo=
-  dependencies:
-    string-convert "^0.2.0"
 
 json3@^3.3.2:
   version "3.3.3"
@@ -9195,11 +9188,6 @@ qs@6.7.0:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"
   integrity sha512-VCdBRNFTX1fyE7Nb6FYoURo/SPe62QCaAyzJvUjwRaIsc+NePBEniHlvxFmmX56+HZphIGtV0XeCirBtpDrTyQ==
 
-qs@^6.5.1:
-  version "6.8.0"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.8.0.tgz#87b763f0d37ca54200334cd57bb2ef8f68a1d081"
-  integrity sha512-tPSkj8y92PfZVbinY1n84i1Qdx75lZjMQYx9WZhnkofyxzw2r7Ho39G3/aEvSUdebxpnnM4LZJCtvE/Aq3+s9w==
-
 qs@~6.5.2:
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
@@ -9318,14 +9306,6 @@ react-fast-compare@^2.0.2:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
   integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
 
-react-fns@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/react-fns/-/react-fns-1.4.0.tgz#7b74017f9850849560dfe98f98bba3f7948495b5"
-  integrity sha512-Cchvz3d6Hh9Ho8SPQOU3/HDeiL/D/QaHozs0X0lePOI2yPoT15GFEVUbz3RHoDsnyUp8HA5A7HAKEPx3nggs8w==
-  dependencies:
-    qs "^6.5.1"
-    react-media "^1.6.1"
-
 react-github-corner@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/react-github-corner/-/react-github-corner-2.3.0.tgz#73ab17324b670c9cd955567b09663d385cfb05ef"
@@ -9376,16 +9356,6 @@ react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
-
-react-media@^1.6.1:
-  version "1.9.2"
-  resolved "https://registry.yarnpkg.com/react-media/-/react-media-1.9.2.tgz#423ee12f952e1d69f1b994a58d3cbed21a92b370"
-  integrity sha512-JUYECMcJIm0V61LSVKd1e+II4ZTYO0GuR7xtlvKETlmThZ416BqZjZdJ1uGqgmMAGFeJ3TG4TX/3Kg4qbR3EJw==
-  dependencies:
-    "@babel/runtime" "^7.2.0"
-    invariant "^2.2.2"
-    json2mq "^0.2.0"
-    prop-types "^15.5.10"
 
 react-reconciler@^0.20.0:
   version "0.20.4"
@@ -9932,11 +9902,6 @@ scroll-behavior@^0.9.9:
   dependencies:
     dom-helpers "^3.2.1"
     invariant "^2.2.2"
-
-scroll-swipe@0.0.17:
-  version "0.0.17"
-  resolved "https://registry.yarnpkg.com/scroll-swipe/-/scroll-swipe-0.0.17.tgz#31bc1cb74f174a3d596a9a942a05075de54e4285"
-  integrity sha512-qflUt5hxgFGzZpUoHyrDsXA3nBFEy9yOeDTlg7x826owdEDGlJqIqdjyNuxtCNRHr/Ute8AQ6NdCRw4j3hOqvA==
 
 seek-bzip@^1.0.5:
   version "1.0.5"
@@ -10536,11 +10501,6 @@ strict-uri-encode@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/strict-uri-encode/-/strict-uri-encode-1.1.0.tgz#279b225df1d582b1f54e65addd4352e18faa0713"
   integrity sha1-J5siXfHVgrH1TmWt3UNS4Y+qBxM=
-
-string-convert@^0.2.0:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/string-convert/-/string-convert-0.2.1.tgz#6982cc3049fbb4cd85f8b24568b9d9bf39eeff97"
-  integrity sha1-aYLMMEn7tM2F+LJFaLnZvznu/5c=
 
 string-length@^2.0.0:
   version "2.0.0"
@@ -11590,11 +11550,6 @@ widest-line@^2.0.0:
   integrity sha512-Ba5m9/Fa4Xt9eb2ELXt77JxVDV8w7qQrH0zS/TWSJdLyAwQjWoOzpzj5lwVftDz6n/EOu3tNACS84v509qwnJA==
   dependencies:
     string-width "^2.1.1"
-
-window-or-global@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/window-or-global/-/window-or-global-1.0.1.tgz#dbe45ba2a291aabc56d62cf66c45b7fa322946de"
-  integrity sha1-2+RboqKRqrxW1iz2bEW3+jIpRt4=
 
 with-open-file@^0.1.6:
   version "0.1.6"

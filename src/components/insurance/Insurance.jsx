@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-
-import SideMenu from '../sideMenu/SideMenu'
+import BackgroundImage from 'gatsby-background-image'
 import { Section } from "react-scroll-section"
+import { graphql } from "gatsby"
 
-const bgImage = require('../../images/secao-seguro-bg.jpg')
 
-const Wrapper = styled.section`
-  background-image: url(${bgImage});
+const Wrapper = styled(BackgroundImage)`
   background-size: cover;
   min-height: calc(100vh - 80px);
   display: flex;
@@ -29,20 +27,31 @@ const SectionPlaceholder = styled.div`
   background-color: transparent;
 `;
 
-const Welcome = () => {
+const Welcome = ({ insuranceBackground }) => {
   return (
     <>
       <Section id={'insurance'}>
         <SectionPlaceholder/>
       </Section>
-      <Wrapper>
+      <Wrapper Tag={`section`} fluid={insuranceBackground.childImageSharp.fluid}>
         <Text>
           Um cartão que está sempre com você em qualquer lugar do mundo
         </Text>
       </Wrapper>
     </>
-
   )
 }
 
+
+export const fragment = graphql`
+  fragment Insurance_images on Query {
+    insuranceBackground: file(relativePath: { eq: "secao-seguro-bg.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
 export default Welcome

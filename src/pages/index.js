@@ -30,11 +30,11 @@ const IndexPage = ({ data }) => {
     <ScrollingProvider scrollBehavior="smooth">
       <Layout>
         <GlobalStyle/>
-        <Welcome showCards={() => setShowCards(true)}/>
+        <Welcome {...data} showCards={() => setShowCards(true)}/>
         <Card {...data} show={showCards} hideCards={() => setShowCards(false)}/>
-        <AppPortal/>
-        <Insurance/>
-        <VirtualCard/>
+        <AppPortal {...data}/>
+        <Insurance {...data} />
+        <VirtualCard {...data} />
         <SideMenu showCards={showCards}/>
         <Footer />
       </Layout>
@@ -45,6 +45,10 @@ const IndexPage = ({ data }) => {
 export const query = graphql`
   query {
     ...Cards_images
+    ...AppPortal_images
+    ...Welcome_images
+    ...Insurance_images
+    ...VirtualCard_images
   }
 `;
 
