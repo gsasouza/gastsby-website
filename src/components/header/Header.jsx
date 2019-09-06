@@ -1,15 +1,15 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { Section } from 'react-scroll-section';
+import BackgroundImage from 'gatsby-background-image'
 
 import HeaderButton from './HeaderButton';
+import { graphql } from "gatsby"
 
-const headerImg = require('../../images/header.jpg');
 const baneseLogo = require('../../images/logo.png');
 
-const HeaderWrapper = styled.section`
+const HeaderWrapper = styled(BackgroundImage)`
   margin-top: -120px;
-  background-image: url(${headerImg});
   background-size: cover;
   min-height: 100vh;
   a {
@@ -90,7 +90,7 @@ const items = [
   }
 ]
 
-const Header = ({ children }) => {
+const Header = ({ children, headerBackground }) => {
   const [isOnTop, setIsOnTop] = React.useState(false);
   const handleScroll = () => {
     if (window.scrollY >= 50) return setIsOnTop(true)
@@ -117,7 +117,7 @@ const Header = ({ children }) => {
         </ButtonClient>
       </StyledHeader>
       <Section id={'header'}>
-        <HeaderWrapper>
+        <HeaderWrapper Tag={`section`} fluid={headerBackground.childImageSharp.fluid}>
           {children}
         </HeaderWrapper>
       </Section>
@@ -125,4 +125,16 @@ const Header = ({ children }) => {
   )
 }
 
+
+export const fragment = graphql`
+  fragment Header_images on Query {
+    headerBackground: file(relativePath: { eq: "header.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
 export default Header;

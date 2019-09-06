@@ -28,7 +28,7 @@ const IndexPage = ({ data }) => {
   const [showCards, setShowCards] = React.useState(false);
   return (
     <ScrollingProvider scrollBehavior="smooth">
-      <Layout>
+      <Layout {...data}>
         <GlobalStyle/>
         <Welcome {...data} showCards={() => setShowCards(true)}/>
         <Card {...data} show={showCards} hideCards={() => setShowCards(false)}/>
@@ -49,7 +49,8 @@ export const query = graphql`
     ...Welcome_images
     ...Insurance_images
     ...VirtualCard_images
-  }
+    ...Header_images  
+  }  
 `;
 
 export default IndexPage
