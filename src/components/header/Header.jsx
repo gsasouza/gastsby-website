@@ -12,6 +12,7 @@ const HeaderWrapper = styled(BackgroundImage)`
   margin-top: -120px;
   background-size: cover;
   min-height: 100vh;
+  width: 100%;
   a {
     text-decoration: none;
   }
